@@ -54,10 +54,10 @@ class HomeNestedNavigation extends StatelessWidget {
 
           if (settings.name == '/') {
             page = const ApplePage();
-            transition = Transition.leftToRight;
+            transition = Transition.upToDown;
           } else if (settings.name == '/android') {
             page = const AndroidPage();
-            transition = Transition.rightToLeft;
+            transition = Transition.downToUp;
           } else {
             page = const Center(child: Text('Not Found Page'));
             transition = Transition.fade;
