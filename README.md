@@ -1,6 +1,6 @@
 # get_named_routes
 
-A new Flutter project.
+Named navigation course and nested navigation with GetX
 
 ## Getting Started
 
