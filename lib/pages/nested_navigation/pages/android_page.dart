@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AndroidPage extends StatelessWidget {
-  const AndroidPage({Key? key}) : super(key: key);
+  AndroidPage({Key? key, this.parameters}) : super(key: key);
+  Map<String, String>? parameters;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Icon(Icons.android)),
-    );
+    debugPrint(this.parameters.toString());
+    return Scaffold(
+        body: Center(child: Text(this.parameters?['id'] ?? 'Sem ID')));
   }
 }
