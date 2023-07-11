@@ -8,7 +8,6 @@ class AndroidPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint(this.parameters.toString());
-    return Scaffold(
-        body: Center(child: Text(this.parameters?['id'] ?? 'Sem ID')));
+    return Scaffold(body: Center(child: Text(Get.arguments['id'] ?? 'Sem ID')));
   }
 }

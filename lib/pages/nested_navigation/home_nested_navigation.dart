@@ -30,7 +30,7 @@ class HomeNestedNavigation extends StatelessWidget {
                   Get.toNamed(
                     '/android',
                     id: 1,
-                    parameters: {'id': '123'},
+                    arguments: {'id': '143'},
                   );
 
                   break;
@@ -55,23 +55,15 @@ class HomeNestedNavigation extends StatelessWidget {
         onGenerateRoute: (settings) {
           Widget page;
           Transition transition;
-          final regex = RegExp(r'(^\/[a-zA-Z0-9_/]+)(\?.*)($)');
-          final match = regex.firstMatch(settings.name!);
-          final parametersString = match?.group(2);
-          String? routeName =
-              settings.name?.replaceAll(parametersString ?? '', '');
-          var uri = Uri.dataFromString('http://dalvan.elemesmo.com' +
-              settings.name.toString()); //converts string to a uri
-          Map<String, String> params = uri.queryParameters;
-          debugPrint(params.toString());
+
+          Get.routing.args = settings.arguments;
+
           // return value of
-          if (routeName == '/') {
+          if (settings.name == '/') {
             page = const ApplePage();
             transition = Transition.upToDown;
-          } else if (routeName == '/android') {
-            page = AndroidPage(
-              parameters: params,
-            );
+          } else if (settings.name == '/android') {
+            page = AndroidPage();
             transition = Transition.downToUp;
           } else {
             page = const Center(child: Text('Not Found Page'));
